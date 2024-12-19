@@ -1,0 +1,35 @@
+<div class="mt-20 mb-20">
+    <div class="flex justify-end items-center font-light space-x-4 mr-20 mb-8">
+        <label for="statistic">Stat:</label>
+        <select id="statistic" [(ngModel)]="selectedStatistic" (change)="onSelectionChange()">
+        <option *ngFor="let stat of statistics" [value]="stat">{{ stat }}</option>
+        </select>
+
+        <!-- Year Dropdown -->
+        <label for="year">Season:</label>
+        <select id="year" [(ngModel)]="selectedYear" (change)="onSelectionChange()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+        </select>
+    
+        <!-- Week Dropdown -->
+        <label for="week">Week:</label>
+        <select id="week" [(ngModel)]="selectedWeek" (change)="onSelectionChange()">
+        <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+        </select>
+    
+        <!-- Position Dropdown -->
+        <label for="position">Position:</label>
+        <select id="position" [(ngModel)]="selectedPosition" (change)="onSelectionChange()">
+        <option *ngFor="let position of positions" [value]="position">{{ position }}</option>
+        </select>
+    </div>
+    <div class="ml-20 mr-20">
+        <!-- Chart -->
+        <canvas *ngIf="chartData" baseChart
+        [datasets]="chartData.datasets"
+        [labels]="chartData.labels"
+        [type]="'bar'">
+        </canvas>
+    </div>
+</div>
+  
